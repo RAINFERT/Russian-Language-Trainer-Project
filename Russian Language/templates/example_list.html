@@ -1,0 +1,39 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+List of examples
+{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <div class="ui segment">
+        <table class="ui selectable celled table">
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Example</th>
+                    <th>Translation of the sentence</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for example in examples %}
+                    <tr>
+                        <td>{{ example.word }}</td>
+                        <td>{{ example.example_sentence }}</td>
+                        <td>{{ example.translation }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3" class="center aligned">There are no examples to display.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Кнопка возврата на главную -->
+    <div class="ui container" style="display: flex; justify-content: center; align-items: center; ">
+        <a href="{% url 'index' %}" class="ui secondary button">Home Page</a>
+    </div>
+</div>
+{% endblock %}

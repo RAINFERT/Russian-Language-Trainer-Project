@@ -1,0 +1,108 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Russian language learning simulator
+{% endblock %}
+
+{% block page-lead %}
+Welcome to the Russian language learning simulator. The creators of this site hope you'll like being here) Good luck!
+{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <h4 class="ui header center aligned">What you can find on this site:</h4>
+    <div class="ui three column stackable grid">
+        <!-- Ячейка 1: Список слов -->
+        <div class="column">
+            <div class="ui card equal-height">
+                <div class="content">
+                    <div class="center aligned">
+                        <i class="huge list icon blue"></i>
+                        <div class="header">List of words</div>
+                    </div>
+                </div>
+                <div class="extra content center aligned">
+                    <a href="/words-list" class="ui primary button">View word list</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ячейка 2: Добавление слов -->
+        <div class="column">
+            <div class="ui card equal-height">
+                <div class="content">
+                    <div class="center aligned">
+                        <i class="huge add icon blue"></i>
+                        <div class="header">Add a word, my friend</div>
+                    </div>
+                </div>
+                <div class="extra content center aligned">
+                    <a href="/add-word" class="ui primary button">Add</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ячейка 3: Тест на знание слов -->
+        <div class="column">
+            <div class="ui card equal-height">
+                <div class="content">
+                    <div class="center aligned">
+                        <i class="huge question circle icon blue"></i>
+                        <div class="header">Word knowledge test</div>
+                        <p>Check out your knowledge.</p>
+                    </div>
+                </div>
+                <div class="extra content center aligned">
+                    <a href="{% url 'test_words' %}" class="ui primary button">Test</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ячейка 4: Список примеров слов в предложении -->
+        <div class="column">
+            <div class="ui card equal-height">
+                <div class="content">
+                    <div class="center aligned">
+                        <i class="huge book icon blue"></i>
+                        <div class="header">Examples</div>
+                    </div>
+                </div>
+                <div class="extra content center aligned">
+                    <a href="/examples-list" class="ui primary button">View examples</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ячейка 5: Форма для добавления примера -->
+        <div class="column">
+            <div class="ui card equal-height">
+                <div class="content">
+                    <div class="center aligned">
+                        <i class="huge pencil alternate icon blue"></i>
+                        <div class="header">Add new example, my friend</div>
+                    </div>
+                </div>
+                <div class="extra content center aligned">
+                    <a href="/add-example" class="ui primary button">Add</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ячейка 6: Статистика -->
+        <div class="column">
+            <div class="ui card equal-height">
+                <div class="content">
+                    <div class="center aligned">
+                        <i class=" chart bar icon blue huge"></i>
+                        <div class="header">Statistics</div>
+                    </div>
+                </div>
+                <div class="extra content center aligned">
+                    <a href="/stats" class="ui primary button">View statistics</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

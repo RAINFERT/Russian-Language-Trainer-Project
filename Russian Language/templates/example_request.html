@@ -1,0 +1,33 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+{% if success %}
+Example added
+{% else %}
+Error adding
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <div class="ui segment">
+        <!-- Результат запроса -->
+        <h3 class="ui header center aligned">Query result</h3>
+        <p>
+            Dear user <em>{{ user }}</em>,<br/>
+            Your request has <strong>{% if success %}been completed successfully{% else %}failed{% endif %}</strong>.
+        </p>
+
+        <!-- Комментарий -->
+        <h3 class="ui header center aligned">Comment</h3>
+        <p>{{ comment }}</p>
+
+        <!-- Что можно сделать -->
+        <h3 class="ui header center aligned">What can be done?</h3>
+        <div class="center aligned margin-top-16">
+            <a href="/add-example" class="ui primary button">Add another example</a>
+            <a href="/" class="ui secondary button">Home Page</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

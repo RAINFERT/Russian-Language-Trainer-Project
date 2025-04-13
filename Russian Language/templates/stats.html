@@ -1,0 +1,60 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Statistics
+{% endblock %}
+
+{% block page-lead %}{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <div class="ui segment">
+        <!-- Заголовок -->
+        <h3 class="ui header center aligned">Number of words</h3>
+
+        <!-- Карточки -->
+        <div class="ui three column stackable grid">
+            <!-- Карточка 1: Всего слов -->
+            <div class="column">
+                <div class="ui card equal-height">
+                    <div class="content center aligned">
+                        <div class="header">Total</div>
+                        <div class="description">
+                            <h2>{{ words_all }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Добавленных через форму -->
+            <div class="column">
+                <div class="ui card equal-height">
+                    <div class="content center aligned">
+                        <div class="header">Added by user via <a href="/add-word" class="ui primary text">form</a></div>
+                        <div class="description">
+                            <h2>{{ words_added }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Угадано из всех попыток -->
+            <div class="column">
+                <div class="ui card">
+                    <div class="content center aligned">
+                        <div class="header">Guessed from all attempts</div>
+                        <div class="description">
+                            <h2>{{ correct_user_answers }} of {{ total_attempts }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Кнопка возврата на главную -->
+    <div class="ui container" style="display: flex; justify-content: center; align-items: center; ">
+        <a href="{% url 'index' %}" class="ui secondary button">Home Page</a>
+    </div>
+
+</div>
+{% endblock %}

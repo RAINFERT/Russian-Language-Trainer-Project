@@ -1,0 +1,44 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Add a word
+{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <form method="post" action="/send-word" class="ui form">
+        {% csrf_token %}
+
+        <!-- Поле для имени -->
+        <div class="field">
+            <label>Name:</label>
+            <input id="name" name="name" type="text" required placeholder="Enter your name">
+        </div>
+
+        <!-- Поле для слова -->
+        <div class="field">
+            <label>Word:</label>
+            <input id="new_word" name="new_word" type="text" required placeholder="Enter a word">
+        </div>
+
+        <!-- Поле для перевода -->
+        <div class="field">
+            <label>Translation:</label>
+            <input id="new_translation" name="new_translation" required rows="4" placeholder="Enter a translation"></input>
+        </div>
+
+        <!-- Кнопка отправки -->
+        <div class="center aligned margin-top-16">
+            <button type="submit" class="ui primary button">
+                Send
+                <i class="send icon"></i>
+            </button>
+        </div>
+    </form>
+
+    <!-- Кнопка возврата на главную -->
+    <div class="ui container" style="display: flex; justify-content: center; align-items: center; ">
+        <a href="{% url 'index' %}" class="ui secondary button">Home Page</a>
+    </div>
+</div>
+{% endblock %}

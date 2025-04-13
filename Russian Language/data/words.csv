@@ -1,0 +1,34 @@
+word;translation;source
+признавать;to acknowledge;user
+кошка;to cat;user
+презирать;to despise;user
+пить;to drink;db
+есть;to eat;db
+чувствовать;to feel;db
+летать;to fly;db
+ненавидеть;to hate;db
+слышать;to hear;db
+помогать;to help;db
+прыгать;to jump;db
+обучаться;to learn;db
+слушать;to listen;db
+любить;to love;db
+играть;to play;db
+читать;to read;db
+бежать;to run;db
+видеть;to see;db
+спать;to sleep;db
+нюхать;to smell;db
+говорить;to speak;db
+учиться;to study;db
+солнце;sun;user
+плавать;to swim;db
+вкусить;to taste;db
+учить;to teach;db
+думать;to think;db
+трогать;to touch;db
+просыпаться;to wake up;db
+будить;to wake;db
+гулять;to walk;db
+работать;to work;db
+писать;to write;db

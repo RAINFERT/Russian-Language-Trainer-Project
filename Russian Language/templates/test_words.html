@@ -1,0 +1,54 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Word knowledge test
+{% endblock %}
+
+{% block page-lead %}
+Test your knowledge of words. Write a translation for this word.
+{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <!-- Слово -->
+    <h4 class="ui header center aligned">Word: {{ word }}</h4>
+
+    {% if translation %}
+    <!-- Правильный перевод -->
+    <h5 class="ui header center aligned">{{ translation }}</h5>
+    {% endif %}
+
+    {% if result %}
+    <!-- Результат теста -->
+    <div class="ui card {% if result == 'success' %}green{% else %}red{% endif %}">
+        <div class="ui container" style="display: flex; justify-content: center;  ">
+            <span class="header">{{ message }}</span>
+        </div>
+    </div>
+    <div class="center aligned margin-top-16">
+        <a href="{% url 'test_words' %}" class="ui primary button">Next word</a>
+    </div>
+    {% else %}
+    <!-- Форма для ответа -->
+    <form method="post" action="{% url 'test_words' %}" class="ui form">
+        {% csrf_token %}
+        <div class="field">
+            <label>Translation:</label>
+            <input id="answer" name="answer" type="text" required placeholder="Enter translation">
+        </div>
+        <div class="center aligned">
+            <button type="submit" class="ui primary button">
+                Answer
+                <i class="send icon"></i>
+            </button>
+        </div>
+    </form>
+    {% endif %}
+
+    <!-- Дополнительные действия -->
+    <div class="ui container" style="display: flex; justify-content: center; align-items: center; ">
+        <a href="{% url 'reset_test' %}" class="ui negative button">Try again</a>
+        <a href="{% url 'index' %}" class="ui secondary button">Home Page</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block pagetitle %}{% endblock %}</title>
+    <!-- Подключение Semantic UI CSS -->
+    <link rel="stylesheet" href="{% static 'css/semantic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icon.min.css' %}">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+</head>
+<body>
+<!-- Левая и правая полосы -->
+<div class="side-stripe left"></div>
+<div class="side-stripe right"></div>
+
+<!-- Основной контент -->
+<main class="page-container">
+    <div class="ui container">
+        <!-- Верхняя строчка с названием -->
+        <header class="ui segment basic center aligned">
+            <a href="/" class="ui header">
+                <img src="{% static 'abc.svg' %}" alt="Language project" class="ui image" width="32" height="32"/>
+                <div class="content">
+                    Russian language learning simulator
+                </div>
+            </a>
+        </header>
+
+        <!-- Section -->
+        <div class="ui segment">
+            <h3 class="ui header center aligned">{% block page-title %}{% endblock %}</h3>
+            <p class="ui text center aligned">{% block page-lead %}{% endblock %}</p>
+        </div>
+
+        <!-- Main Content -->
+        {% block content %}{% endblock %}
+    </div>
+    <div class="ui container" style="display: grid; grid-template-rows: 1fr auto; min-height: 25vh;">
+        <!-- Основное содержимое -->
+        <div></div>
+
+        <!-- Footer -->
+        <footer class="ui segment basic center aligned">
+            © 2025
+        </footer>
+    </div>
+</main>
+<!-- Подключение Semantic UI JS -->
+<script src="{% static 'js/semantic.min.js' %}"></script>
+</body>
+</html>

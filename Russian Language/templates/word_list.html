@@ -1,0 +1,52 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+List of words
+{% endblock %}
+
+{% block page-lead %}{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <!-- Таблица -->
+    <div class="ui segment">
+        <table class="ui selectable celled table">
+            <thead>
+                <tr>
+                    <th class="center aligned">#</th>
+                    <th>Word</th>
+                    <th>Translation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cnt, word, translation in words %}
+                <tr>
+                    <td class="center aligned">{{ cnt }}</td>
+                    <td>{{ word }}</td>
+                    <td>{{ translation }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ui two column centered grid">
+        <!-- Кнопка показать список примеров -->
+        <div class="column">
+            <div class="center aligned margin-top-16">
+                <a href="{% url 'example_list' %}" class="ui primary button">View examples</a>
+            </div>
+        </div>
+
+        <!-- Кнопка вернуться на главную -->
+        <div class="column">
+            <div class="center aligned margin-top-16">
+                <a href="{% url 'index' %}" class="ui secondary button">Home Page</a>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+{% endblock %}
